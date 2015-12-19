@@ -1,13 +1,15 @@
 $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&callback=initialize");
 function initialize() {	
 	// billing street
-	var input = (document.getElementById('billing_address_street'));
+	jQuery('#billing_address_street').before('<input type="text" id="b_address_street"></input><br>');
+  var input = (document.getElementById('b_address_street'));
 	var options = {
 			  types: ['establishment']
 		};
 	var billing_autocomplete = new google.maps.places.Autocomplete(input);
 	google.maps.event.addListener(billing_autocomplete, 'place_changed', function() {		
 		 var place = billing_autocomplete.getPlace();
+     jQuery("#b_address_street").val("");
 		 jQuery("#billing_address_city").val("");
 		 jQuery("#billing_address_state").val("");
 		 jQuery("#billing_address_country").val("");
@@ -49,13 +51,15 @@ function initialize() {
 	        }, 200);
 	});
 	//shipping address
-	var input = (document.getElementById('shipping_address_street'));
+	jQuery('#shipping_address_street').before('<input type="text" id="s_address_street"></input><br>');
+  var input = (document.getElementById('s_address_street'));
 	var options = {
 	  types: ['establishment']
 	};
-	var shipping_autocomplete = new google.maps.places.Autocomplete(input);
+  var shipping_autocomplete = new google.maps.places.Autocomplete(input);
 	google.maps.event.addListener(shipping_autocomplete, 'place_changed', function() {		
 		 var place = shipping_autocomplete.getPlace();
+     jQuery('#s_address_street').val("");
 		 jQuery("#shipping_address_city").val("");
 		 jQuery("#shipping_address_state").val("");
 		 jQuery("#shipping_address_country").val("");

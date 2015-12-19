@@ -1,14 +1,16 @@
 $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&callback=initialize");
 function initialize() {	
 	// primary address
-	var input = (document.getElementById('primary_address_street'));
+  jQuery('#primary_address_street').before('<input type="text" id="p_address_street"></input><br>');
+  var input = (document.getElementById('p_address_street'));
 	var options = {
 			  types: ['establishment']
 			};
 	var autocomplete_billing = new google.maps.places.Autocomplete(input);
 	google.maps.event.addListener(autocomplete_billing, 'place_changed', function() {		
 		 var place = autocomplete_billing.getPlace();
-		 jQuery("#primary_address_street").val("");
+     jQuery('#p_address_street').val("");
+     jQuery("#primary_address_street").val("");
 		 jQuery("#primary_address_city").val("");
 		 jQuery("#primary_address_state").val("");
 		 jQuery("#primary_address_postalcode").val("");
@@ -46,14 +48,15 @@ function initialize() {
 	});
 	
 	// alternate address
-	
-	var input = (document.getElementById('alt_address_street'));
+  jQuery('#alt_address_street').before('<input type="text" id="a_address_street"></input><br>');
+	var input = (document.getElementById('a_address_street'));
 	var options = {
 			  types: ['establishment']
 			};
 	var autocomplete_alternate = new google.maps.places.Autocomplete(input);
 	google.maps.event.addListener(autocomplete_alternate, 'place_changed', function() {		
 		 var place = autocomplete_alternate.getPlace();
+     jQuery('#a_address_street').val("");
 		 jQuery("#alt_address_street").val("");
 		 jQuery("#alt_address_city").val("");
 		 jQuery("#alt_address_state").val("");
