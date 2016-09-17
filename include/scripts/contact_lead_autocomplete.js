@@ -19,15 +19,6 @@ function initialize() {
 		 var street_name = "";
 		 street_name = place.name
 		 $.each(place.address_components,function(key,element){			
-			 if(jQuery.inArray("street_number", element.types) !== -1){
-				 street_name += " ,"+element.long_name;
-			 }
-			 if(jQuery.inArray("route", element.types) !== -1){
-				 street_name += " ,"+element.long_name;
-			 }
-			 if(jQuery.inArray("neighborhood", element.types) !== -1){
-				 street_name += " ,"+element.long_name;
-			 }
 			 if(jQuery.inArray("administrative_area_level_2", element.types) !== -1 || jQuery.inArray("locality", element.types) !== -1){			
 					 jQuery("#primary_address_city").val(element.long_name);
 			 }
