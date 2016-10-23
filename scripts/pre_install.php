@@ -5,7 +5,7 @@ function pre_install(){
 		mkdir(dirname('custom/'.$detailviewdefs), 0777, true);
 		copy($detailviewdefs,'custom/'.$detailviewdefs);
 	}
-	$include_js = PHP_EOL.'$viewdefs["Contacts"]["EditView"]["templateMeta"]["includes"][]["file"] = "custom/modules/Contacts/js/contact_lead_autocomplete.js";' . PHP_EOL;
+	$include_js = PHP_EOL.'<?php $viewdefs["Contacts"]["EditView"]["templateMeta"]["includes"][]["file"] = "custom/modules/Contacts/js/contact_lead_autocomplete.js"; ?>';
 	$fw = fopen('custom/'.$detailviewdefs,"a");
 	fwrite($fw,$include_js);
 	fclose($fw);
@@ -16,7 +16,7 @@ function pre_install(){
 		mkdir(dirname('custom/'.$detailviewdefs), 0777, true);
 		copy($detailviewdefs,'custom/'.$detailviewdefs);
 	}
-	$include_js = PHP_EOL.'$viewdefs["Leads"]["EditView"]["templateMeta"]["includes"][]["file"] = "custom/modules/Leads/js/contact_lead_autocomplete.js";' . PHP_EOL;
+	$include_js = PHP_EOL.'<?php $viewdefs["Leads"]["EditView"]["templateMeta"]["includes"][]["file"] = "custom/modules/Leads/js/contact_lead_autocomplete.js"; ?>';
 	$fw = fopen('custom/'.$detailviewdefs,"a");
 	fwrite($fw,$include_js);
 	fclose($fw);
@@ -27,7 +27,7 @@ function pre_install(){
 		mkdir(dirname('custom/'.$detailviewdefs), 0777, true);
 		copy($detailviewdefs,'custom/'.$detailviewdefs);
 	}
-	$include_js = PHP_EOL.'$viewdefs["Accounts"]["EditView"]["templateMeta"]["includes"][]["file"] = "custom/modules/Accounts/js/account_autocomplete.js";'.PHP_EOL;
+	$include_js = PHP_EOL.'<?php $viewdefs["Accounts"]["EditView"]["templateMeta"]["includes"][]["file"] = "custom/modules/Accounts/js/account_autocomplete.js"; ?>';
 	$fw = fopen('custom/'.$detailviewdefs,"a");
 	fwrite($fw,$include_js);
 	fclose($fw);
